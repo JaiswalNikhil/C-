@@ -1,0 +1,7 @@
+C:\Users\Nimap\Desktop\C#\Inheritance\Inheritance\bin\Debug\Inheritance.exe.config
+C:\Users\Nimap\Desktop\C#\Inheritance\Inheritance\bin\Debug\Inheritance.exe
+C:\Users\Nimap\Desktop\C#\Inheritance\Inheritance\bin\Debug\Inheritance.pdb
+C:\Users\Nimap\Desktop\C#\Inheritance\Inheritance\obj\Debug\Inheritance.csproj.AssemblyReference.cache
+C:\Users\Nimap\Desktop\C#\Inheritance\Inheritance\obj\Debug\Inheritance.csproj.CoreCompileInputs.cache
+C:\Users\Nimap\Desktop\C#\Inheritance\Inheritance\obj\Debug\Inheritance.exe
+C:\Users\Nimap\Desktop\C#\Inheritance\Inheritance\obj\Debug\Inheritance.pdb
