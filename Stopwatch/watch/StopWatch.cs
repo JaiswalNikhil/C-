@@ -10,7 +10,7 @@ namespace watch
     {
          
 
-        public static TimeSpan Start<T>() where T : new()
+        public static TimeSpan Start()
         {
             var Hours = DateTime.Now.Hour;
             var Minute = DateTime.Now.Minute;
@@ -20,7 +20,7 @@ namespace watch
             return timespan;
         }
 
-        public static TimeSpan Stop<T>() where T : new()
+        public static TimeSpan Stop()
         {
 
             var Hours = DateTime.Now.Hour;
@@ -38,7 +38,6 @@ namespace watch
             var Total_Seconds = time2.Seconds - time1.Seconds;
 
             TimeSpan time = new TimeSpan(Total_Hours, Total_Minutes, Total_Seconds);
-
            
             Console.WriteLine("\n\n\t\t Time : " + time);
            

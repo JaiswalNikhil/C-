@@ -26,7 +26,7 @@ namespace watch
                
                 if (button == ConsoleKey.Backspace)
                 {
-                    var obj = StopWatch.Start<TimeSpan>();
+                    var obj = StopWatch.Start();
                     Console.Clear();
                     Console.WriteLine("\n\n\t\t Time Starts Now .........");
                     Console.Write("\n\n\t\t press \"Enter\" Key to stop ");
@@ -35,7 +35,7 @@ namespace watch
 
                     if(button == ConsoleKey.Enter)
                     {
-                        var obj1 = StopWatch.Stop<TimeSpan>();
+                        var obj1 = StopWatch.Stop();
 
                         Console.Clear();
                         
