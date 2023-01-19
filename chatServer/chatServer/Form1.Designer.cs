@@ -43,29 +43,29 @@
             // 
             // txtmsg
             // 
-            this.txtmsg.Location = new System.Drawing.Point(32, 21);
-            this.txtmsg.Margin = new System.Windows.Forms.Padding(2);
+            this.txtmsg.Location = new System.Drawing.Point(43, 26);
+            this.txtmsg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtmsg.Multiline = true;
             this.txtmsg.Name = "txtmsg";
-            this.txtmsg.Size = new System.Drawing.Size(186, 210);
+            this.txtmsg.Size = new System.Drawing.Size(247, 258);
             this.txtmsg.TabIndex = 0;
             this.txtmsg.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // txtchat
             // 
-            this.txtchat.Location = new System.Drawing.Point(23, 244);
-            this.txtchat.Margin = new System.Windows.Forms.Padding(2);
+            this.txtchat.Location = new System.Drawing.Point(31, 300);
+            this.txtchat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtchat.Multiline = true;
             this.txtchat.Name = "txtchat";
-            this.txtchat.Size = new System.Drawing.Size(207, 32);
+            this.txtchat.Size = new System.Drawing.Size(275, 38);
             this.txtchat.TabIndex = 1;
             // 
             // Sendbtn
             // 
-            this.Sendbtn.Location = new System.Drawing.Point(244, 245);
-            this.Sendbtn.Margin = new System.Windows.Forms.Padding(2);
+            this.Sendbtn.Location = new System.Drawing.Point(325, 302);
+            this.Sendbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Sendbtn.Name = "Sendbtn";
-            this.Sendbtn.Size = new System.Drawing.Size(73, 31);
+            this.Sendbtn.Size = new System.Drawing.Size(97, 38);
             this.Sendbtn.TabIndex = 2;
             this.Sendbtn.Text = "Send";
             this.Sendbtn.UseVisualStyleBackColor = true;
@@ -74,19 +74,19 @@
             // checked_list
             // 
             this.checked_list.FormattingEnabled = true;
-            this.checked_list.Location = new System.Drawing.Point(713, 11);
-            this.checked_list.Margin = new System.Windows.Forms.Padding(2);
+            this.checked_list.Location = new System.Drawing.Point(917, 11);
+            this.checked_list.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checked_list.Name = "checked_list";
-            this.checked_list.Size = new System.Drawing.Size(149, 259);
+            this.checked_list.Size = new System.Drawing.Size(197, 310);
             this.checked_list.TabIndex = 5;
             this.checked_list.SelectedIndexChanged += new System.EventHandler(this.Checked_list_SelectedIndexChanged);
             // 
             // Connectbtn
             // 
-            this.Connectbtn.Location = new System.Drawing.Point(340, 245);
-            this.Connectbtn.Margin = new System.Windows.Forms.Padding(2);
+            this.Connectbtn.Location = new System.Drawing.Point(453, 302);
+            this.Connectbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Connectbtn.Name = "Connectbtn";
-            this.Connectbtn.Size = new System.Drawing.Size(89, 31);
+            this.Connectbtn.Size = new System.Drawing.Size(119, 38);
             this.Connectbtn.TabIndex = 4;
             this.Connectbtn.Text = "Connect";
             this.Connectbtn.UseVisualStyleBackColor = true;
@@ -100,52 +100,61 @@
             this.RollNo,
             this.Address,
             this.Port});
-            this.dataGridView1.Location = new System.Drawing.Point(244, 11);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(325, 14);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(444, 220);
+            this.dataGridView1.Size = new System.Drawing.Size(553, 251);
             this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Name
             // 
             this.Name.HeaderText = "Name";
+            this.Name.MinimumWidth = 6;
             this.Name.Name = "Name";
             this.Name.ReadOnly = true;
+            this.Name.Width = 125;
             // 
             // RollNo
             // 
             this.RollNo.HeaderText = "RollNo";
+            this.RollNo.MinimumWidth = 6;
             this.RollNo.Name = "RollNo";
             this.RollNo.ReadOnly = true;
+            this.RollNo.Width = 125;
             // 
             // Address
             // 
             this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 6;
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
+            this.Address.Width = 125;
             // 
             // Port
             // 
             this.Port.HeaderText = "Port";
+            this.Port.MinimumWidth = 6;
             this.Port.Name = "Port";
             this.Port.ReadOnly = true;
+            this.Port.Width = 125;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 367);
+            this.ClientSize = new System.Drawing.Size(1154, 425);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Connectbtn);
             this.Controls.Add(this.checked_list);
             this.Controls.Add(this.Sendbtn);
             this.Controls.Add(this.txtchat);
             this.Controls.Add(this.txtmsg);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            //this.Name = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -7,3 +7,13 @@ C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatS
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatServer.exe
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatServer.pdb
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatServer.Form1.resources
+C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatServer\bin\Debug\chatServer.exe.config
+C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatServer\bin\Debug\chatServer.exe
+C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatServer\bin\Debug\chatServer.pdb
+C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatServer\obj\Debug\chatServer.Form1.resources
+C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatServer\obj\Debug\chatServer.Properties.Resources.resources
+C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatServer\obj\Debug\chatServer.csproj.GenerateResource.cache
+C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatServer\obj\Debug\chatServer.csproj.CoreCompileInputs.cache
+C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatServer\obj\Debug\chatServer.exe
+C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatServer\obj\Debug\chatServer.pdb
+C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatServer\obj\Debug\chatServer.csproj.AssemblyReference.cache

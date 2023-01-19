@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="txtName.Location" type="System.Drawing.Point, System.Drawing">
     <value>104, 31</value>
@@ -168,7 +168,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtName.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="Connectbtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>427, 28</value>
@@ -192,7 +192,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Connectbtn.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="Sendbtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>427, 276</value>
@@ -216,7 +216,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Sendbtn.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="txtchat.Location" type="System.Drawing.Point, System.Drawing">
     <value>82, 77</value>
@@ -225,7 +225,7 @@
     <value>True</value>
   </data>
   <data name="txtchat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>327, 181</value>
+    <value>304, 181</value>
   </data>
   <data name="txtchat.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -240,7 +240,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtchat.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="txtmsg.Location" type="System.Drawing.Point, System.Drawing">
     <value>82, 276</value>
@@ -264,7 +264,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtmsg.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="label.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -288,7 +288,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="txtroll.Location" type="System.Drawing.Point, System.Drawing">
     <value>309, 31</value>
@@ -312,6 +312,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtroll.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Stopbtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>444, 86</value>
+  </data>
+  <data name="Stopbtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 41</value>
+  </data>
+  <data name="Stopbtn.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="Stopbtn.Text" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="&gt;&gt;Stopbtn.Name" xml:space="preserve">
+    <value>Stopbtn</value>
+  </data>
+  <data name="&gt;&gt;Stopbtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Stopbtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Stopbtn.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -326,6 +350,9 @@
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>Disable</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Form1</value>

@@ -36,12 +36,14 @@ namespace chatclient
             int received = socket.EndReceive(ar);
             byte[] dataBuf = new byte[received];
             Array.Copy(receivedBuf, dataBuf, received);
-
-            txtchat.Invoke((MethodInvoker)(() => txtchat.AppendText("\n " + Encoding.ASCII.GetString(dataBuf))));
+            
+            txtchat.TextAlign = HorizontalAlignment.Left;
+            txtchat.Invoke((MethodInvoker)(() => txtchat.AppendText("Server : " + Encoding.ASCII.GetString(dataBuf) + "\r\n")));
             
             //rb_chat.AppendText("\nServer: " + lb_stt.Text);
             _clientSocket.BeginReceive(receivedBuf, 0, receivedBuf.Length, SocketFlags.None, new AsyncCallback(ReceiveData), _clientSocket);
         }
+
 
         private void SendLoop()
         {
@@ -58,8 +60,8 @@ namespace chatclient
                 {
                     byte[] data = new byte[rev];
                     Array.Copy(receivedBuf, data, rev);
-                    label.Text = ("Received: " + Encoding.ASCII.GetString(data));
-                    txtchat.AppendText("\nServer: " + Encoding.ASCII.GetString(data));
+                    label.Text = ("\nReceived : " + Encoding.ASCII.GetString(data));
+                    txtchat.AppendText("\nServer : " + Encoding.ASCII.GetString(data));
                 }
                 else _clientSocket.Close();
 
@@ -87,8 +89,8 @@ namespace chatclient
 
         private void Connectbtn_Click(object sender, EventArgs e)
         {
-
-            string name = $"{txtName.Text},{txtroll.Text},Connect";
+            Connectbtn.Enabled = false;
+            string name = $"{txtName.Text.ToUpper()},{txtroll.Text},Connect";
             LoopConnect();
              //SendLoop();
             _clientSocket.BeginReceive(receivedBuf, 0, receivedBuf.Length, SocketFlags.None, new AsyncCallback(ReceiveData), _clientSocket);
@@ -99,12 +101,23 @@ namespace chatclient
 
         private void Sendbtn_Click(object sender, EventArgs e)
         {
+
             if (_clientSocket.Connected)
             { 
-                byte[] buffer = Encoding.ASCII.GetBytes(txtmsg.Text);
+                byte[] buffer = Encoding.ASCII.GetBytes(txtName.Text.ToUpper() + " : " + txtmsg.Text);
                 _clientSocket.Send(buffer);
-                txtchat.AppendText("Client: " + txtmsg.Text);
+                txtchat.Text.PadRight(100);
+                txtchat.TextAlign = HorizontalAlignment.Left;
+                txtchat.AppendText(" You : " + txtmsg.Text + "\r\n");
+                txtmsg.Text = "";
             }
+
+        }
+
+        private void Stopbtn_Click(object sender, EventArgs e)
+        {
+            _clientSocket.Close();
+            Connectbtn.Enabled = true;
         }
     }
 }
