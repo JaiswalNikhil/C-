@@ -37,7 +37,7 @@
             this.txtmsg = new System.Windows.Forms.TextBox();
             this.label = new System.Windows.Forms.Label();
             this.txtroll = new System.Windows.Forms.TextBox();
-            this.Stopbtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -66,7 +66,6 @@
             // 
             // txtchat
             // 
-            this.txtchat.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.txtchat, "txtchat");
             this.txtchat.Name = "txtchat";
             // 
@@ -85,18 +84,16 @@
             resources.ApplyResources(this.txtroll, "txtroll");
             this.txtroll.Name = "txtroll";
             // 
-            // Stopbtn
+            // label2
             // 
-            resources.ApplyResources(this.Stopbtn, "Stopbtn");
-            this.Stopbtn.Name = "Stopbtn";
-            this.Stopbtn.UseVisualStyleBackColor = true;
-            this.Stopbtn.Click += new System.EventHandler(this.Stopbtn_Click);
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Stopbtn);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtroll);
             this.Controls.Add(this.label);
             this.Controls.Add(this.txtmsg);
@@ -123,7 +120,7 @@
         private System.Windows.Forms.TextBox txtmsg;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.TextBox txtroll;
-        private System.Windows.Forms.Button Stopbtn;
+        private System.Windows.Forms.Label label2;
     }
 }
 

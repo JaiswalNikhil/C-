@@ -8,13 +8,3 @@ C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatclient\obj\Debug\chatc
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatclient\obj\Debug\chatclient.csproj.CoreCompileInputs.cache
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatclient\obj\Debug\chatclient.exe
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatclient\obj\Debug\chatclient.pdb
-C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatclient\bin\Debug\chatclient.exe.config
-C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatclient\bin\Debug\chatclient.exe
-C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatclient\bin\Debug\chatclient.pdb
-C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatclient\obj\Debug\chatclient.Form1.resources
-C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatclient\obj\Debug\chatclient.Properties.Resources.resources
-C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatclient\obj\Debug\chatclient.csproj.GenerateResource.cache
-C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatclient\obj\Debug\chatclient.csproj.CoreCompileInputs.cache
-C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatclient\obj\Debug\chatclient.exe
-C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatclient\obj\Debug\chatclient.pdb
-C:\Users\Nimap\Downloads\C_Sharp-master (1)\C_Sharp-master\chatServer\chatclient\obj\Debug\chatclient.csproj.AssemblyReference.cache
