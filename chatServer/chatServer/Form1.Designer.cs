@@ -38,13 +38,12 @@
             this.RollNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Port = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtmsg
             // 
-            this.txtmsg.Location = new System.Drawing.Point(12, 13);
+            this.txtmsg.Location = new System.Drawing.Point(85, 13);
             this.txtmsg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtmsg.Multiline = true;
             this.txtmsg.Name = "txtmsg";
@@ -54,7 +53,7 @@
             // 
             // txtchat
             // 
-            this.txtchat.Location = new System.Drawing.Point(31, 300);
+            this.txtchat.Location = new System.Drawing.Point(85, 302);
             this.txtchat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtchat.Multiline = true;
             this.txtchat.Name = "txtchat";
@@ -63,7 +62,7 @@
             // 
             // Sendbtn
             // 
-            this.Sendbtn.Location = new System.Drawing.Point(325, 302);
+            this.Sendbtn.Location = new System.Drawing.Point(396, 302);
             this.Sendbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Sendbtn.Name = "Sendbtn";
             this.Sendbtn.Size = new System.Drawing.Size(97, 38);
@@ -75,7 +74,7 @@
             // checked_list
             // 
             this.checked_list.FormattingEnabled = true;
-            this.checked_list.Location = new System.Drawing.Point(741, 11);
+            this.checked_list.Location = new System.Drawing.Point(878, 13);
             this.checked_list.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checked_list.Name = "checked_list";
             this.checked_list.Size = new System.Drawing.Size(197, 310);
@@ -84,7 +83,7 @@
             // 
             // Connectbtn
             // 
-            this.Connectbtn.Location = new System.Drawing.Point(453, 302);
+            this.Connectbtn.Location = new System.Drawing.Point(544, 302);
             this.Connectbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Connectbtn.Name = "Connectbtn";
             this.Connectbtn.Size = new System.Drawing.Size(119, 38);
@@ -94,6 +93,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -101,12 +101,12 @@
             this.RollNo,
             this.Address,
             this.Port});
-            this.dataGridView1.Location = new System.Drawing.Point(280, 11);
+            this.dataGridView1.Location = new System.Drawing.Point(338, 13);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(444, 271);
+            this.dataGridView1.Size = new System.Drawing.Size(534, 271);
             this.dataGridView1.TabIndex = 7;
             // 
             // Name
@@ -133,21 +133,11 @@
             this.Port.Name = "Port";
             this.Port.ReadOnly = true;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(963, 13);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(212, 292);
-            this.listBox1.TabIndex = 8;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1242, 401);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(1087, 362);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Connectbtn);
             this.Controls.Add(this.checked_list);
@@ -156,7 +146,7 @@
             this.Controls.Add(this.txtmsg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-          
+            this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -178,7 +168,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RollNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Port;
-        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

@@ -1,10 +1,10 @@
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\bin\Debug\chatServer.exe.config
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\bin\Debug\chatServer.exe
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\bin\Debug\chatServer.pdb
+C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatServer.Form1.resources
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatServer.Properties.Resources.resources
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatServer.csproj.GenerateResource.cache
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatServer.csproj.CoreCompileInputs.cache
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatServer.exe
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatServer.pdb
-C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatServer.Form1.resources
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatServer\obj\Debug\chatServer.csprojAssemblyReference.cache

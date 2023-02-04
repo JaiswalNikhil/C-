@@ -59,31 +59,67 @@ namespace chatServer
         private void ReceiveCallback(IAsyncResult ar)
         {
             Socket socket = (Socket)ar.AsyncState;
-            int received = socket.EndReceive(ar);
-            byte[] dataBuf = new byte[received];
-            Array.Copy(_buffer, dataBuf, received);
-            string text = Encoding.ASCII.GetString(dataBuf);
 
-            string[] txt = text.Split(',');
-            string address = (string) socket.RemoteEndPoint.ToString();
-            string[] ip_port = address.Split(':');
-
-
-            try
+            if(socket.Connected)
             {
-                if (txt[2].Equals("Connect"))
+                int received;
+                try
                 {
-                    checked_list.Invoke((MethodInvoker)(() => checked_list.Items.Add(socket.RemoteEndPoint.ToString() + ":" + txt[0] + ":" + txt[1])));
-                    //  listBox1.Invoke((MethodInvoker)(() => listBox1.Items.Add(socket.RemoteEndPoint.ToString() + ":" + txt[0] + ":" + txt[1])));
-                    dataGridView1.Invoke((MethodInvoker)(() => dataGridView1.Rows.Add(txt[0].ToUpper(), txt[1], ip_port[0], ip_port[1])));
-                    //listBox1.Invoke((MethodInvoker)(() => listBox1.Items.Add(socket.RemoteEndPoint.ToString())));
-                   ;
+                     received = socket.EndReceive(ar);
                 }
-            }catch(Exception ex)
-            {
-                
-                txtmsg.Invoke((MethodInvoker)(() => txtmsg.AppendText(text + "\r\n")));
+                catch(Exception)
+                {
+                    for (int i = 0; i < _clientsockets.Count; i++)
+                    {
+                        if (_clientsockets[i]._Socket.RemoteEndPoint.ToString().Equals(socket.RemoteEndPoint.ToString()))
+                        {
+                            _clientsockets.RemoveAt(i);
+                        }
+                    }
+                    return;
+                }
+
+                if(received!=0)
+                {
+                    byte[] dataBuf = new byte[received];
+                    Array.Copy(_buffer, dataBuf, received);
+                    string text = Encoding.ASCII.GetString(dataBuf);
+
+                    string[] txt = text.Split(',');
+                    string address = (string)socket.RemoteEndPoint.ToString();
+                    string[] ip_port = address.Split(':');
+
+                    try
+                    {
+                        if (txt[2].Equals("Connect"))
+                        {
+                            checked_list.Invoke((MethodInvoker)(() => checked_list.Items.Add(socket.RemoteEndPoint.ToString() + ":" + txt[0] + ":" + txt[1])));
+                            dataGridView1.Invoke((MethodInvoker)(() => dataGridView1.Rows.Add(txt[0].ToUpper(), txt[1], ip_port[0], ip_port[1])));
+                        }
+
+                    }
+                    catch(Exception)
+                    {
+                        txtmsg.Invoke((MethodInvoker)(() => txtmsg.AppendText(text + "\r\n")));
+
+                    }
+
+                }
+                else
+                {
+                    for (int i = 0; i < _clientsockets.Count; i++)
+                    {
+                        if (_clientsockets[i]._Socket.RemoteEndPoint.ToString().Equals(socket.RemoteEndPoint.ToString()))
+                        {
+                            _clientsockets.RemoveAt(i);
+                            dataGridView1.Invoke((MethodInvoker)(() => dataGridView1.Rows.RemoveAt(i)));
+                            checked_list.Invoke((MethodInvoker)(() => checked_list.Items.RemoveAt(i)));
+
+                        }
+                    }
+                }
             }
+            
 
             socket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), socket);
 
@@ -107,6 +143,8 @@ namespace chatServer
 
             List<int> list = new List<int>();
 
+
+            
             foreach(int index in checked_list.CheckedIndices)
             {
                 list.Add(index);
@@ -114,7 +152,9 @@ namespace chatServer
           
             for (int i = 0; i < checked_list.CheckedItems.Count; i++)
             {
-                Sendata(_clientsockets[list[i]]._Socket,"Server : " + txtchat.Text);
+               
+                    Sendata(_clientsockets[list[i]]._Socket, "Server : " + txtchat.Text);
+                   
             }
             
             txtmsg.AppendText("You : " + txtchat.Text + "\r\n");

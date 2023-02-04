@@ -38,6 +38,7 @@
             this.label = new System.Windows.Forms.Label();
             this.txtroll = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.closebtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -89,10 +90,18 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
+            // closebtn
+            // 
+            resources.ApplyResources(this.closebtn, "closebtn");
+            this.closebtn.Name = "closebtn";
+            this.closebtn.UseVisualStyleBackColor = true;
+            this.closebtn.Click += new System.EventHandler(this.Closebtn_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.closebtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtroll);
             this.Controls.Add(this.label);
@@ -121,6 +130,7 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.TextBox txtroll;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button closebtn;
     }
 }
 
