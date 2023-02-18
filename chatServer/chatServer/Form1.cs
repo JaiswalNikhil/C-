@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -15,15 +16,17 @@ namespace chatServer
 
     public partial class Form1 : Form
     {
-
+        public static Form1 instance;
         public Socket _serversocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        private List<SocketT2h> _clientsockets =  new List<SocketT2h>();
-        private byte[] _buffer = new byte[1024];
+        private  List<SocketT2h> _clientsockets = new List<SocketT2h>();
+        private byte[] _buffer = new byte[450560];
+      
 
 
         public Form1()
         {
             InitializeComponent();
+            instance = this;
           
         }
 
@@ -83,8 +86,16 @@ namespace chatServer
                 {
                     byte[] dataBuf = new byte[received];
                     Array.Copy(_buffer, dataBuf, received);
+                    try
+                    {
+                        
+                        
+                        
+                         Form2.instance.pic.Invoke((MethodInvoker)(() => Form2.instance.pic.Image = byteArrayToImage(dataBuf)));
+                        
+                    }
+                    catch (Exception) { }
                     string text = Encoding.ASCII.GetString(dataBuf);
-
                     string[] txt = text.Split(',');
                     string address = (string)socket.RemoteEndPoint.ToString();
                     string[] ip_port = address.Split(':');
@@ -96,12 +107,23 @@ namespace chatServer
                             checked_list.Invoke((MethodInvoker)(() => checked_list.Items.Add(socket.RemoteEndPoint.ToString() + ":" + txt[0] + ":" + txt[1])));
                             dataGridView1.Invoke((MethodInvoker)(() => dataGridView1.Rows.Add(txt[0].ToUpper(), txt[1], ip_port[0], ip_port[1])));
                         }
+                        //else if(text.Contains("?"))
+                        //{
+                        //    Form2.instance.pic.Invoke((MethodInvoker)(() => Form2.instance.pic.Image = byteArrayToImage(dataBuf)));
+                        //}
+                        //Form2.instance.pic.Invoke((MethodInvoker)(() => Form2.instance.pic.Image = byteArrayToImage(dataBuf)));
+                        // Form2.instance.pic.Invoke((MethodInvoker)(() => Form2.instance.pic.Image = byteArrayToImage(dataBuf)));
+
+                        //else if(imagetxt[0].Equals("PNG"))
+                        //{
+                        //    Form2.instance.pic.Invoke((MethodInvoker)(() => Form2.instance.pic.Image = byteArrayToImage(Encoding.ASCII.GetBytes(imagetxt[1]))));
+                        //}
 
                     }
                     catch(Exception)
                     {
-                        txtmsg.Invoke((MethodInvoker)(() => txtmsg.AppendText(text + "\r\n")));
 
+                        txtmsg.Invoke((MethodInvoker)(() => txtmsg.AppendText(text + "\r\n")));
                     }
 
                 }
@@ -115,6 +137,8 @@ namespace chatServer
                             dataGridView1.Invoke((MethodInvoker)(() => dataGridView1.Rows.RemoveAt(i)));
                             checked_list.Invoke((MethodInvoker)(() => checked_list.Items.RemoveAt(i)));
 
+                            
+
                         }
                     }
                 }
@@ -125,7 +149,16 @@ namespace chatServer
 
         }
 
-        void Sendata(Socket socket, string text)
+
+        private Image byteArrayToImage(byte[] bytesArr)
+        {
+
+            return (Bitmap)(new ImageConverter()).ConvertFrom(bytesArr);
+            //     pictureBox1.Image = bmp;
+
+        }
+
+        public void Sendata(Socket socket, string text)
         {
             byte[] data = Encoding.ASCII.GetBytes(text);
             socket.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(SendCallback), socket);
@@ -169,6 +202,31 @@ namespace chatServer
         private void Checked_list_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void SendMsg()
+        {
+
+            List<int> list = new List<int>();
+
+            foreach (int index in checked_list.CheckedIndices)
+            {
+                list.Add(index);
+            }
+
+            for (int i = 0; i < checked_list.CheckedItems.Count; i++)
+            {
+                Sendata(_clientsockets[list[i]]._Socket,"Capture");
+            }
+
+        }
+
+
+        private void Ssbtn_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Show();
+            //this.Hide();
         }
     }
 }

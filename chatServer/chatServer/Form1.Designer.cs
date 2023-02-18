@@ -38,7 +38,10 @@
             this.RollNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Port = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ssbtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtmsg
@@ -105,6 +108,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(534, 271);
             this.dataGridView1.TabIndex = 7;
@@ -112,32 +116,60 @@
             // Name
             // 
             this.Name.HeaderText = "Name";
+            this.Name.MinimumWidth = 6;
             this.Name.Name = "Name";
             this.Name.ReadOnly = true;
+            this.Name.Width = 125;
             // 
             // RollNo
             // 
             this.RollNo.HeaderText = "RollNo";
+            this.RollNo.MinimumWidth = 6;
             this.RollNo.Name = "RollNo";
             this.RollNo.ReadOnly = true;
+            this.RollNo.Width = 125;
             // 
             // Address
             // 
             this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 6;
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
+            this.Address.Width = 125;
             // 
             // Port
             // 
             this.Port.HeaderText = "Port";
+            this.Port.MinimumWidth = 6;
             this.Port.Name = "Port";
             this.Port.ReadOnly = true;
+            this.Port.Width = 125;
+            // 
+            // ssbtn
+            // 
+            this.ssbtn.Location = new System.Drawing.Point(4, 32);
+            this.ssbtn.Name = "ssbtn";
+            this.ssbtn.Size = new System.Drawing.Size(75, 23);
+            this.ssbtn.TabIndex = 8;
+            this.ssbtn.Text = "ss";
+            this.ssbtn.UseVisualStyleBackColor = true;
+            this.ssbtn.Click += new System.EventHandler(this.Ssbtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(1082, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(700, 417);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1087, 362);
+            this.ClientSize = new System.Drawing.Size(1817, 516);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ssbtn);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Connectbtn);
             this.Controls.Add(this.checked_list);
@@ -146,11 +178,12 @@
             this.Controls.Add(this.txtmsg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
+           
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,6 +201,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RollNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Port;
+        private System.Windows.Forms.Button ssbtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

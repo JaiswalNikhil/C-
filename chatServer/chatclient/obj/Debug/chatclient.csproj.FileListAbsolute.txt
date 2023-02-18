@@ -8,3 +8,13 @@ C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatclient\obj\Debug\chatc
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatclient\obj\Debug\chatclient.csproj.CoreCompileInputs.cache
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatclient\obj\Debug\chatclient.exe
 C:\Users\neha jaiswal\OneDrive\Desktop\AWP\chatServer\chatclient\obj\Debug\chatclient.pdb
+C:\Nikhil\chatServer\chatclient\bin\Debug\chatclient.exe.config
+C:\Nikhil\chatServer\chatclient\bin\Debug\chatclient.exe
+C:\Nikhil\chatServer\chatclient\bin\Debug\chatclient.pdb
+C:\Nikhil\chatServer\chatclient\obj\Debug\chatclient.csproj.AssemblyReference.cache
+C:\Nikhil\chatServer\chatclient\obj\Debug\chatclient.Form1.resources
+C:\Nikhil\chatServer\chatclient\obj\Debug\chatclient.Properties.Resources.resources
+C:\Nikhil\chatServer\chatclient\obj\Debug\chatclient.csproj.GenerateResource.cache
+C:\Nikhil\chatServer\chatclient\obj\Debug\chatclient.csproj.CoreCompileInputs.cache
+C:\Nikhil\chatServer\chatclient\obj\Debug\chatclient.exe
+C:\Nikhil\chatServer\chatclient\obj\Debug\chatclient.pdb
