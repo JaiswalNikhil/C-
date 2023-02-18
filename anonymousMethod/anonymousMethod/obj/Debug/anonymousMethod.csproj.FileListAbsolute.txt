@@ -1,0 +1,7 @@
+C:\Users\Nimap\Desktop\C#\anonymousMethod\anonymousMethod\bin\Debug\anonymousMethod.exe.config
+C:\Users\Nimap\Desktop\C#\anonymousMethod\anonymousMethod\bin\Debug\anonymousMethod.exe
+C:\Users\Nimap\Desktop\C#\anonymousMethod\anonymousMethod\bin\Debug\anonymousMethod.pdb
+C:\Users\Nimap\Desktop\C#\anonymousMethod\anonymousMethod\obj\Debug\anonymousMethod.csproj.AssemblyReference.cache
+C:\Users\Nimap\Desktop\C#\anonymousMethod\anonymousMethod\obj\Debug\anonymousMethod.csproj.CoreCompileInputs.cache
+C:\Users\Nimap\Desktop\C#\anonymousMethod\anonymousMethod\obj\Debug\anonymousMethod.exe
+C:\Users\Nimap\Desktop\C#\anonymousMethod\anonymousMethod\obj\Debug\anonymousMethod.pdb
