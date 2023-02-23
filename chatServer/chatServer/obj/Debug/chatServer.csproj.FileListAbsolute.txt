@@ -20,3 +20,15 @@ C:\Nikhil\chatServer\chatServer\obj\Debug\chatServer.csproj.GenerateResource.cac
 C:\Nikhil\chatServer\chatServer\obj\Debug\chatServer.csproj.CoreCompileInputs.cache
 C:\Nikhil\chatServer\chatServer\obj\Debug\chatServer.exe
 C:\Nikhil\chatServer\chatServer\obj\Debug\chatServer.pdb
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\bin\Debug\chatServer.exe.config
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\bin\Debug\chatServer.exe
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\bin\Debug\chatServer.pdb
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.csprojAssemblyReference.cache
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.Properties.Resources.resources
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.csproj.GenerateResource.cache
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.csproj.CoreCompileInputs.cache
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.exe
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.pdb
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.LiveMonitor.resources
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.Server.resources
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.ScreenShot.resources
