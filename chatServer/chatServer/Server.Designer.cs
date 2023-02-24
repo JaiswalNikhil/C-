@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Server));
             this.txtmsg = new System.Windows.Forms.TextBox();
             this.txtchat = new System.Windows.Forms.TextBox();
             this.Sendbtn = new System.Windows.Forms.Button();
@@ -42,6 +43,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Restart_Btn = new System.Windows.Forms.Button();
             this.Lock_Btn = new System.Windows.Forms.Button();
+            this.btnpdf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,7 +160,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(535, 302);
+            this.button1.Location = new System.Drawing.Point(106, 347);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 49);
             this.button1.TabIndex = 10;
@@ -168,7 +170,7 @@
             // 
             // Restart_Btn
             // 
-            this.Restart_Btn.Location = new System.Drawing.Point(678, 302);
+            this.Restart_Btn.Location = new System.Drawing.Point(262, 347);
             this.Restart_Btn.Name = "Restart_Btn";
             this.Restart_Btn.Size = new System.Drawing.Size(119, 49);
             this.Restart_Btn.TabIndex = 11;
@@ -178,7 +180,7 @@
             // 
             // Lock_Btn
             // 
-            this.Lock_Btn.Location = new System.Drawing.Point(825, 302);
+            this.Lock_Btn.Location = new System.Drawing.Point(407, 347);
             this.Lock_Btn.Name = "Lock_Btn";
             this.Lock_Btn.Size = new System.Drawing.Size(115, 49);
             this.Lock_Btn.TabIndex = 12;
@@ -186,11 +188,22 @@
             this.Lock_Btn.UseVisualStyleBackColor = true;
             this.Lock_Btn.Click += new System.EventHandler(this.Lock_Btn_Click);
             // 
+            // btnpdf
+            // 
+            this.btnpdf.Location = new System.Drawing.Point(792, 291);
+            this.btnpdf.Name = "btnpdf";
+            this.btnpdf.Size = new System.Drawing.Size(132, 49);
+            this.btnpdf.TabIndex = 13;
+            this.btnpdf.Text = "Generate Pdf";
+            this.btnpdf.UseVisualStyleBackColor = true;
+            this.btnpdf.Click += new System.EventHandler(this.Btnpdf_Click);
+            // 
             // Server
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1206, 408);
+            this.Controls.Add(this.btnpdf);
             this.Controls.Add(this.Lock_Btn);
             this.Controls.Add(this.Restart_Btn);
             this.Controls.Add(this.button1);
@@ -202,10 +215,11 @@
             this.Controls.Add(this.txtchat);
             this.Controls.Add(this.txtmsg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            //this.Name = "Server";
+           // this.Name = "Server";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Lab Monitoring System";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -229,6 +243,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Restart_Btn;
         private System.Windows.Forms.Button Lock_Btn;
+        private System.Windows.Forms.Button btnpdf;
     }
 }
 

@@ -32,3 +32,5 @@ C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServe
 C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.LiveMonitor.resources
 C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.Server.resources
 C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.ScreenShot.resources
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\bin\Debug\itextsharp.dll
+C:\Users\neha jaiswal\OneDrive\Desktop\chatServer\chatServer\obj\Debug\chatServer.csproj.CopyComplete

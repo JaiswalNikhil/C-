@@ -10,6 +10,10 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+//using System.IO;
+
 
 namespace chatServer
 {
@@ -92,49 +96,68 @@ namespace chatServer
 
                     try
                     {
+                        
                         ScreenShot.instance.pic.Invoke((MethodInvoker)(() => ScreenShot.instance.pic.Image =
-                                                                        (Bitmap)(new ImageConverter()).ConvertFrom(dataBuf)));
-                    }
+                                                                        (Bitmap)(new ImageConverter()).ConvertFrom(dataBuf)));                     
+                    }                  
                     catch (Exception) { }
 
                     try
                     {
-                        LiveMonitor.instance.pic1.Invoke((MethodInvoker)(() => LiveMonitor.instance.pic1.Image =
-                                                                        (Bitmap)(new ImageConverter()).ConvertFrom(dataBuf)));
+                        LiveMonitor.instance.pic1.Invoke((MethodInvoker)(() => LiveMonitor.instance.pic1.Image =                                                                        (Bitmap)(new ImageConverter()).ConvertFrom(dataBuf)));
                     }
                     catch (Exception) { }
-
 
                     string text = Encoding.ASCII.GetString(dataBuf);
 
                     string[] client_details = text.Split(',');
-                    Student_Name.Add(client_details[0].ToUpper()+ " ");
-                    
+                    Student_Name.Add(client_details[0].ToUpper() + " ");
+
                     string address = (string)socket.RemoteEndPoint.ToString();
                     string[] ip_port = address.Split(':');
-                    
+
                     string[] name = text.Split(':');
-                    
+
+
                     try
-                    {
+                    {                       
                         if (client_details[2].Equals("Connect"))
                         {
+
                             checked_list.Invoke((MethodInvoker)(() => checked_list.Items.Add(socket.RemoteEndPoint.ToString() + ":" + client_details[0] + ":" + client_details[1])));
                             dataGridView1.Invoke((MethodInvoker)(() => dataGridView1.Rows.Add(client_details[0].ToUpper(), client_details[1], ip_port[0], ip_port[1])));
-                        }                      
+                        }
                     }
                     catch(Exception)
                     {
+
                         List<string> myList = Student_Name.Distinct().ToList();
                         foreach (string obj in myList)
                         {
                             if (name[0].Equals(obj))
                             {
-                                txtmsg.Invoke((MethodInvoker)(() => txtmsg.AppendText(text + "\r\n")));
-                            }
+                                txtmsg.Invoke((MethodInvoker)(() => txtmsg.AppendText(text + "\r\n")));                                
+                            }                         
                         }
                     }
-             
+
+
+                    try
+                    {
+                        switch (name[1])
+                        {
+                            case " INSERTED USB":
+                                //this.ShowDialog();
+                                MessageBox.Show(text, "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                break;
+
+                            case " REMOVED USB":
+                                MessageBox.Show(text, "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                break;
+                        }
+                    }
+                    catch (Exception) { }
+
                 }
                 else
                 {
@@ -153,7 +176,6 @@ namespace chatServer
             socket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), socket);
 
         }
-
 
         private void byteArrayToImage(byte[] bytesArr)
         {
@@ -230,6 +252,7 @@ namespace chatServer
             ScreenShot ss = new ScreenShot();
             ss.Show();
             
+
         }
         private void BtnMonitor_Click(object sender, EventArgs e)
         {
@@ -237,7 +260,8 @@ namespace chatServer
             
             LiveMonitor l = new LiveMonitor();
             l.Show();
-           // LiveMonitor.instance.pic1.Image = null;
+            // LiveMonitor.instance.pic1.Image = null;
+
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -253,6 +277,77 @@ namespace chatServer
         private void Lock_Btn_Click(object sender, EventArgs e)
         {
             SendMsg("Lock");
+        }
+
+        private void Btnpdf_Click(object sender, EventArgs e)
+        {
+           
+            if (dataGridView1.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.FileName = "Output.pdf";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            PdfPTable pdfTable = new PdfPTable(dataGridView1.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                            foreach (DataGridViewColumn column in dataGridView1.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                pdfTable.AddCell(cell);
+                            }
+
+                            foreach (DataGridViewRow row in dataGridView1.Rows)
+                            {
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    pdfTable.AddCell(cell.Value.ToString());
+                                }
+                            }
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+                                pdfDoc.Open();
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+
+                            MessageBox.Show("Data Exported Successfully !!!", "Info");
+                        }
+                        catch (Exception)
+                        {
+                          // MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Record To Export !!!", "Info");
+            }
         }
     }
 }
