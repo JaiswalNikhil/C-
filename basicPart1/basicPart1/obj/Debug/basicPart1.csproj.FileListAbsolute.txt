@@ -1,7 +1,0 @@
-C:\Users\Nimap\Desktop\C#\basicPart1\basicPart1\bin\Debug\basicPart1.exe.config
-C:\Users\Nimap\Desktop\C#\basicPart1\basicPart1\bin\Debug\basicPart1.exe
-C:\Users\Nimap\Desktop\C#\basicPart1\basicPart1\bin\Debug\basicPart1.pdb
-C:\Users\Nimap\Desktop\C#\basicPart1\basicPart1\obj\Debug\basicPart1.csproj.AssemblyReference.cache
-C:\Users\Nimap\Desktop\C#\basicPart1\basicPart1\obj\Debug\basicPart1.csproj.CoreCompileInputs.cache
-C:\Users\Nimap\Desktop\C#\basicPart1\basicPart1\obj\Debug\basicPart1.exe
-C:\Users\Nimap\Desktop\C#\basicPart1\basicPart1\obj\Debug\basicPart1.pdb
